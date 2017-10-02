@@ -91,13 +91,8 @@ def set_properties(project, logger):
     project.set_property("dir_target", "target")
     project.set_property("dir_source_main_python", "src/main/python/")
 
+    #doc site
     project.include_file("pybuilder", "LICENSE")
-
-    project.set_property("sphinx_doc_author", "Ittiel")
-    project.set_property("sphinx_doc_builder", "html")
-    project.set_property("sphinx_project_name", project.name)
-    project.set_property("sphinx_project_version", project.version)
-
     project.set_property("pdoc_module_name", "configAWSEnv")
 
     # Package

@@ -1,17 +1,18 @@
+'''
+parse arguments from Jenkins/CLI
+action:  required action on the environment: WAKEUP/SHUTDOWN
+tags (list): key value pair of AWS tag name and tag value in the format: -t tag1-val1 -t tag2=val2...
+:return:
+1. action
+2. list of tags
+'''
+
 import argparse
 from configAWSEnv.const import WAKEUP, SHUTDOWN
 from configAWSEnv.prints import print_and_exit
 
 
 def parse_args():
-    '''
-    parse arguments from Jenkins/CLI
-    action:  required action on the environment: WAKEUP/SHUTDOWN
-    tags (list): key value pair of AWS tag name and tag value in the format: -t tag1-val1 -t tag2=val2...
-    :return:
-    1. action
-    2. list of tags
-    '''
     # get args: action and AWS instances tag filters
     parser = argparse.ArgumentParser(description='get the required action and AWS instance tags')
     parser.add_argument(

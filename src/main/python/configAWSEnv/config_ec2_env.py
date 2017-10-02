@@ -1,9 +1,3 @@
-import boto3.ec2
-from configAWSEnv.connection import connect_to_ec2_resources, connect_to_ec2
-from configAWSEnv.const import WAKEUP, SHUTDOWN
-from configAWSEnv.prints import print_and_exit
-from configAWSEnv.parser import parse_args
-
 '''
 Main ASW functionality
 - Get the list of instance to run on according to the AWS filter
@@ -12,8 +6,15 @@ Main ASW functionality
 - If fails - return AWS console URL with the list of problematic instances
 '''
 
+import boto3.ec2
+from configAWSEnv.connection import connect_to_ec2_resources, connect_to_ec2
+from configAWSEnv.const import WAKEUP, SHUTDOWN
+from configAWSEnv.prints import print_and_exit
+from configAWSEnv.parser import parse_args
+
 
 def list_instances_by_tag_value(action, filters):
+
     # When passed a tag key, tag value this will return a list of InstanceIds that were found.
     # append instance state
     ec2client = connect_to_ec2()

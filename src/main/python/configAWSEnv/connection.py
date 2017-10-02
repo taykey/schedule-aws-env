@@ -1,10 +1,8 @@
-import boto3.ec2
-from configAWSEnv.prints import print_and_exit
-
 '''
 AWS connection handlers
 '''
-
+import boto3.ec2
+from configAWSEnv.prints import print_and_exit
 
 def connect_to_ec2():
     try:

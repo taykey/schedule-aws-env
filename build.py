@@ -23,6 +23,8 @@ use_plugin("python.distutils")
 use_plugin("exec")
 use_plugin('python.pycharm')
 use_plugin("python.stdeb")
+use_plugin("python.sphinx")
+use_plugin("python.pdoc")
 
 name = "configAWSEnv"
 summary = "An extensible, easy to use continuous build tool for Python"
@@ -89,8 +91,14 @@ def set_properties(project, logger):
     project.set_property("dir_target", "target")
     project.set_property("dir_source_main_python", "src/main/python/")
 
-    project.get_property("copy_resources_glob").append("LICENSE")
     project.include_file("pybuilder", "LICENSE")
+
+    project.set_property("sphinx_doc_author", "Ittiel")
+    project.set_property("sphinx_doc_builder", "html")
+    project.set_property("sphinx_project_name", project.name)
+    project.set_property("sphinx_project_version", project.version)
+
+    project.set_property("pdoc_module_name", "configAWSEnv")
 
     # Package
     # dist = "target/dist/{}-{}".format(project.name, project.version)

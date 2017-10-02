@@ -15,11 +15,11 @@ See further details [here](http://boto.cloudhackers.com/en/latest/boto_config_tu
   - configAWSEnv -t/--tags <list of tags to filter> -a/--actions <SHUTDOWN/WAKEUP>
   - example: configAWSEnv --action WAKEUP --tags  environment=dev --tags service=service1* --tags nightly_shutdown=true
 
-###Development
-- prerequisite:
-  - Python 3.6
-  - virtualenv
-  - pybuilder
+>###Development
+>- prerequisite:
+>  - Python 3.6
+>  - virtualenv
+>  - pybuilder
   
 > ###run
 > - checkout project

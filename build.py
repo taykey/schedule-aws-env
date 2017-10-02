@@ -1,3 +1,16 @@
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+
+
 from pybuilder.core import use_plugin, init, Author, task
 import os
 
@@ -75,6 +88,9 @@ def set_properties(project, logger):
     project.set_property("run_unit_tests_propagate_stderr", True)
     project.set_property("dir_target", "target")
     project.set_property("dir_source_main_python", "src/main/python/")
+
+    project.get_property("copy_resources_glob").append("LICENSE")
+    project.include_file("pybuilder", "LICENSE")
 
     # Package
     # dist = "target/dist/{}-{}".format(project.name, project.version)

@@ -24,13 +24,17 @@ node {
             sh """
                 virtualenv -p python3.6 venv
                 . venv/bin/activate
-                pip install --user pybuilder
+                pip install pybuilder
                 pyb install_dependencies
             """
         }
     }
     stage('Build') {
         echo 'Building..'
+        sh """
+                . venv/bin/activate
+                pyb package
+            """
     }
     stage('Test') {
         echo 'Testing..'

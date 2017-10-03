@@ -22,7 +22,7 @@ use_plugin("python.coverage")
 use_plugin("python.distutils")
 use_plugin("exec")
 use_plugin('python.pycharm')
-use_plugin("python.stdeb")
+# use_plugin("python.stdeb")
 use_plugin("python.sphinx")
 use_plugin("python.pdoc")
 
@@ -75,7 +75,7 @@ def set_properties(project, logger):
         logger.warn("Important: The build steps for local builds are different then the Jenkins steps")
         project.default_task = ["clean", "prepare",  "analyze", "package"]
     project.build_depends_on('setuptools')
-    project.build_depends_on('stdeb')
+    # project.build_depends_on('stdeb')
     project.set_property("verbose", True)
 
     # Coverage properties

@@ -1,4 +1,17 @@
 node {
+    stage ('checkout'){
+         checkout([$class: 'GitSCM',
+             branches: [[name: '*/master']],
+             doGenerateSubmoduleConfigurations: false,
+             extensions: [
+                 [$class: 'CleanBeforeCheckout'],
+                 [$class: 'CloneOption', noTags: true, reference: '', shallow: true]
+             ],
+             submoduleCfg: [],
+             userRemoteConfigs: [[url: 'https://github.com/taykey/schedule-aws-env.git']]
+         ])
+
+    }
     stage('Prepare') {
         echo 'Preparing environment..'
         if (isUnix()) {

@@ -7,7 +7,7 @@ pipeline {
                 steps {
                     echo 'Preparing environment..'
                     if(isUnix()) {
-                        sh 'sudo add-apt-repository ppa:jonathonf/python-3.6
+                        sh 'sudo add-apt-repository ppa:jonathonf/python-3.6'
                         sh 'sudo apt-get update'
                         sh 'sudo apt-get install python3.6'
                         sh 'sudo apt-get install pip'

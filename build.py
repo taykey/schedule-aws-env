@@ -114,7 +114,6 @@ def set_properties(project, logger):
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Topic :: Software Development :: Quality Assurance',
-        'Topic :: Software Development :: DevOps',
         'Topic :: Software Development :: Testing'])
 
 

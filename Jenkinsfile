@@ -10,7 +10,7 @@ node {
             sh 'pip install virtualenv'
             sh """
                 virtualenv -p python3.6 venv
-                source venv/bin/activate
+                . venv/bin/activate
                 pip install pybuilder
                 pyb install_dependencies
             """

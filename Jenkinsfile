@@ -4,8 +4,8 @@ node {
         if (isUnix()) {
             sh 'sudo add-apt-repository ppa:jonathonf/python-3.6'
             sh 'sudo apt-get update'
-            sh 'sudo apt-get install python3.6'
-            sh 'sudo apt-get install pip'
+            sh 'sudo apt-get install python3.6 -y'
+            sh 'sudo apt-get install pip -y'
             sh 'pip install virtualenv'
             sh 'virtualenv -p python3.6 venv'
             sh 'source venv/bin/activate'

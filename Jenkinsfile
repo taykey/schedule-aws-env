@@ -8,10 +8,12 @@ node {
             sh 'sudo apt-get install python-pip -y'
             sh 'sudo apt-get install build-essential libssl-dev libffi-dev python3-dev -y'
             sh 'pip install virtualenv'
-            sh 'virtualenv -p python3.6 venv'
-            sh 'source venv/bin/activate'
-            sh 'pip install pybuilder'
-            sh 'pyb install_dependencies'
+            sh """
+                virtualenv -p python3.6 venv
+                source venv/bin/activate
+                pip install pybuilder
+                pyb install_dependencies
+            """
         }
     }
     stage('Build') {

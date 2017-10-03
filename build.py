@@ -49,7 +49,7 @@ BUILD_DEPENDENCIES = [
 @init
 def set_properties(project, logger):
 
-    project.version = "0.0.3"
+    project.version = "0.0.4"
 
     # Set project dependencies
     for dependency in RUNTIME_DEPENDENCIES:
@@ -98,13 +98,11 @@ def set_properties(project, logger):
     # project.set_property('distutils_commands', ['sdist'])
     project.set_property('distutils_use_setuptools', True)
     project.set_property("dir_dist_scripts", 'scripts')
-    # project.set_property("distutils_console_scripts", ["configAWSEnv_ = pybuilder.cli:main"])
     project.set_property("distutils_entry_points", {'console_scripts': ["configAWSEnv=configAWSEnv:config_ec2_env.main"]})
     project.set_property("distutils_classifiers", [
         'Programming Language :: Python',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
@@ -115,8 +113,8 @@ def set_properties(project, logger):
         'Environment :: Console',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
-        'Topic :: Software Development :: Build Tools',
         'Topic :: Software Development :: Quality Assurance',
+        'Topic :: Software Development :: DevOps',
         'Topic :: Software Development :: Testing'])
 
 

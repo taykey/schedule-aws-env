@@ -27,15 +27,11 @@ use_plugin("python.sphinx")
 use_plugin("python.pdoc")
 
 name = "configAWSEnv"
-summary = "An extensible, easy to use continuous build tool for Python"
-description = """PyBuilder is a build automation tool for python.
-PyBuilder is a software build tool written in pure Python which mainly targets Python applications.
-It is based on the concept of dependency based programming but also comes along with powerful plugin mechanism that
-allows the construction of build life cycles similar to those known from other famous build tools like Apache Maven.
-"""
+summary = "A utility to stop and start AWS environments"
+description = """This utility stops and starts AWS environments (group of instances according to tags) from an external scheduler"""
 
 authors = [Author("Ittiel", "ittiel@gmail.com")]
-url = "http://some utl"
+url = "https://github.com/taykey/schedule-aws-env"
 license = "Apache License"
 packages=["configAWSEnv"]
 
@@ -53,7 +49,7 @@ BUILD_DEPENDENCIES = [
 @init
 def set_properties(project, logger):
 
-    project.version = "0.0.1"
+    project.version = "0.0.3"
 
     # Set project dependencies
     for dependency in RUNTIME_DEPENDENCIES:
@@ -73,7 +69,7 @@ def set_properties(project, logger):
         logger.warn("LOCAL Environment")
         logger.warn("=================")
         logger.warn("Important: The build steps for local builds are different then the Jenkins steps")
-        project.default_task = ["clean", "prepare",  "analyze", "package"]
+        project.default_task = ["clean", "prepare",  "analyze", "package", "upload"]
     project.build_depends_on('setuptools')
     # project.build_depends_on('stdeb')
     project.set_property("verbose", True)
@@ -125,4 +121,4 @@ def set_properties(project, logger):
 
 
     # Release property
-    project.set_property("distutils_upload_repository", "http://pypi.repo.infra.taykey.com")
+    # project.set_property("distutils_upload_repository", "https://pypi.python.org/pypi")

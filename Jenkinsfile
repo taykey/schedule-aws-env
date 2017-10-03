@@ -33,14 +33,22 @@ node {
         echo 'Building..'
         sh """
                 . venv/bin/activate
-                pyb package
+                pyb publish
             """
     }
     stage('Test') {
         echo 'Testing..'
+         sh """
+                . venv/bin/activate
+                pyb run_unit_tests
+            """
     }
     stage('Deploy') {
         echo 'Deploying....'
+         sh """
+                . venv/bin/activate
+                pyb upload
+            """
     }
 
 }

@@ -1,5 +1,5 @@
 # Stop/Start AWS environments
-This package stops and starts AWS environments (group of instances according to tags) from an external scheduler
+This utility stops and starts AWS environments (group of instances according to tags) from an external scheduler
 
 **Usage example:** Add Jenkins project to shutdown AWS qa environment for night and weekend
 ###Dependencies and prerequisites

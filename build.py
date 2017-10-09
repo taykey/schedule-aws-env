@@ -44,12 +44,13 @@ RUNTIME_DEPENDENCIES = [
 ]
 
 BUILD_DEPENDENCIES = [
+    'mockito==1.0.12'
 ]
 
 @init
 def set_properties(project, logger):
 
-    project.version = "0.0.4"
+    project.version = "0.0.5"
 
     # Set project dependencies
     for dependency in RUNTIME_DEPENDENCIES:

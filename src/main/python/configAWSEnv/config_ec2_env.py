@@ -14,6 +14,8 @@ Main ASW functionality
 
 
 class Config:
+    def __init__(self):
+        pass
 
     def list_instances_by_tag_value(self, action, filters):
         # When passed a tag key, tag value this will return a list of InstanceIds that were found.

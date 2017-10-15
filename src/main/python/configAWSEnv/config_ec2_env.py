@@ -93,7 +93,7 @@ def main(*args):
     action, filters = parser.parse_args()
     environment = conf.list_instances_by_tag_value(action=action, filters=filters)
     if not len(environment) > 0:
-        prints.print_and_exit("No instances found in the environment", 2)
+        prints.print_and_exit("No instances found in the environment", 0)
     print("running on AWS region: {}".format(conf.get_region()))
     print("{} called for the following instances: {}".format(action, environment))
 

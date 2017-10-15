@@ -50,7 +50,7 @@ BUILD_DEPENDENCIES = [
 @init
 def set_properties(project, logger):
 
-    project.version = "0.0.6"
+    project.version = "0.0.7"
 
     # Set project dependencies
     for dependency in RUNTIME_DEPENDENCIES:

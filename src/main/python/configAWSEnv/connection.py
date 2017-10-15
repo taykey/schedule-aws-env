@@ -14,7 +14,7 @@ class Connections:
         try:
             ec2client = boto3.client('ec2')
         except Exception as e:
-            prints.print_and_exit(self, "failed to connect to ec2, check your boto configuration\nException: {}".format(e), 2)
+            prints.print_and_exit("failed to connect to ec2, check your boto configuration\nException: {}".format(e), 2)
         return ec2client
 
     def connect_to_ec2_resources(self):
@@ -22,5 +22,5 @@ class Connections:
         try:
             ec2resourcers = boto3.resource('ec2')
         except Exception as e:
-            prints.print_and_exit(self, "failed to connect to ec2, check your boto configuration\nException: {}".format(e), 2)
+            prints.print_and_exit("failed to connect to ec2, check your boto configuration\nException: {}".format(e), 2)
         return ec2resourcers

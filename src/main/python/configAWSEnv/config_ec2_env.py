@@ -17,26 +17,28 @@ class Config:
     def __init__(self):
         pass
 
-    def list_instances_by_tag_value(self, action, filters):
-        # When passed a tag key, tag value this will return a list of InstanceIds that were found.
-        # append instance state
-        ec2_con = Connections()
-        ec2client = ec2_con.connect_to_ec2()
-        if action == WAKEUP:
-            filters.append( {'Name': 'instance-state-name', 'Values': ['{}'.format('stopped')]})
-        elif action == SHUTDOWN:
-            filters.append( {'Name': 'instance-state-name', 'Values': ['{}'.format('running')]})
+    def get_ec2_instances(self, filters):
 
-        response = ec2client.describe_instances(
-            Filters=filters
-        )
+        connection = Connections()
+        ec2 = connection.connect_to_ec2()
 
-        instancelist = []
+        response = ec2.describe_instances(Filters=filters)
+
+        instances = []
         for reservation in (response["Reservations"]):
             for instance in reservation["Instances"]:
-                instancelist.append(instance["InstanceId"])
+                instances.append(instance)
 
-        return instancelist
+        return instances
+
+    def list_instances_by_tag_value(self, action, filters):
+
+        if action == WAKEUP:
+            filters.append({'Name': 'instance-state-name', 'Values': ['{}'.format('stopped')]})
+        elif action == SHUTDOWN:
+            filters.append({'Name': 'instance-state-name', 'Values': ['{}'.format('running')]})
+
+        return self.get_ec2_instances(filters)
 
     def configure_environment(self, action, environment):
         ec2_con = Connections()
@@ -62,7 +64,11 @@ class Config:
         new_environment = self.list_instances_by_tag_value(action, filters)
         if len(new_environment) > 0:
             prints.print_and_exit("Failed to {} environment, "
-                           "\nsee instances with unknown status in AWS console:\n {}".format(action, self.create_aws_url(self, new_environment)), 2)
+                                  "\nsee instances with unknown status in AWS console:\n {}".format(action,
+                                                                                                    self.create_aws_url(
+                                                                                                        self,
+                                                                                                        new_environment)),
+                                  2)
         else:
             print("environment {} successfully".format(action))
 

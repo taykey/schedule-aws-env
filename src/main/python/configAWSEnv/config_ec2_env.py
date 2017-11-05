@@ -38,7 +38,7 @@ class Config:
         elif action == SHUTDOWN:
             filters.append({'Name': 'instance-state-name', 'Values': ['{}'.format('running')]})
 
-        return self.get_ec2_instances(filters)
+        return [instance["InstanceId"] for instance in self.get_ec2_instances(filters)]
 
     def configure_environment(self, action, environment):
         ec2_con = Connections()

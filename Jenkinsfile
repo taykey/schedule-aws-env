@@ -15,13 +15,6 @@ node {
     stage('Prepare') {
         echo 'Preparing environment..'
         if (isUnix()) {
-            # assume that python3.6 and virtualenv are installed on the machine
-            #sh 'sudo add-apt-repository ppa:fkrull/deadsnakes'
-            #sh 'sudo apt-get update'
-            #sh 'sudo apt-get install python3.6=3.6.2* -y'
-            #sh 'sudo apt-get install python-pip -y'
-            #sh 'sudo apt-get install build-essential libssl-dev libffi-dev python3-dev -y'
-            #sh 'pip install virtualenv'
             sh """
                 virtualenv -p python3.6 venv
                 . venv/bin/activate
